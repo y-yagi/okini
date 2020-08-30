@@ -15,14 +15,16 @@ const Artists = () => {
 
   return (
     <section>
-      <h3 className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
-        Artists
-      </h3>
-      <h4 className="mb-8 text-4xl md:text-5xl font-bold tracking-tighter leading-tight">
-        <Link href="/artists/new">
-          <a>Add</a>
-        </Link>
-      </h4>
+            <div className="md:flex md:items-center mb-6">
+        <h3 className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
+          Artists
+        </h3>
+        <p className="mb-8 md:text-5xl underline tracking-tighter m-5">
+          <Link href="/artists/new">
+            <a>Add</a>
+          </Link>
+        </p>
+      </div>
       <div className="grid">
         <table className="table-auto">
           <thead>
