@@ -1,12 +1,12 @@
-import Artist from "../types/artist";
+import Work from "../types/work";
 import Link from "next/link";
 import { useCollection, deleteDocument } from "@nandorojo/swr-firestore";
 import { useUser } from "../lib/useUser";
 
-const Artists = () => {
-  const collection = "okini-artists";
+const Works = () => {
+  const collection = "okini-works";
   const { user } = useUser();
-  const { data, error } = useCollection<Artist>(collection, {
+  const { data, error } = useCollection<Work>(collection, {
     where: ["userId", "==", user?.id],
     // orderBy: ["createdAt", "asc"]
   });
@@ -17,10 +17,10 @@ const Artists = () => {
     <section>
       <div className="md:flex md:items-center mb-6">
         <h3 className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
-          Artists
+          Works
         </h3>
         <p className="mb-8 md:text-5xl underline tracking-tighter m-5">
-          <Link href="/artists/new">
+          <Link href="/works/new">
             <a>Add</a>
           </Link>
         </p>
@@ -34,9 +34,15 @@ const Artists = () => {
             </tr>
           </thead>
           <tbody>
-            {data.map((artist) => (
-              <tr key={artist.id}>
-                <td>{artist.name}</td>
+            {data.map((work) => (
+              <tr key={work.id} className="border">
+                <td className="px-4 py-2">
+                  <span className="text-green-900 text-sm">
+                    {work.name}({work.artistName})
+                  </span>
+                  <br />
+                  <p>{work.content}</p>
+                </td>
                 <td>
                   <button
                     className="btn btn-red"
@@ -46,7 +52,7 @@ const Artists = () => {
                           "Are you sure you wish to delete this item?"
                         )
                       )
-                        deleteDocument(`${collection}/${artist.id}`);
+                        deleteDocument(`${collection}/${work.id}`);
                     }}
                   >
                     Destroy
@@ -61,4 +67,4 @@ const Artists = () => {
   );
 };
 
-export default Artists;
+export default Works;

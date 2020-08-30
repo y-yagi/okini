@@ -3,6 +3,7 @@ import Container from "../components/container";
 import Intro from "../components/intro";
 import Layout from "../components/layout";
 import Artists from "../components/artists";
+import Works from "../components/works";
 import SectionSeparotr from "../components/section-separator";
 import Head from "next/head";
 import Link from "next/link";
@@ -31,6 +32,8 @@ const Index = () => {
         </Head>
         <Container>
           <Intro />
+          <Works />
+          <SectionSeparotr />
           <Artists />
           <SectionSeparotr />
         </Container>
