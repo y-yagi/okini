@@ -8,7 +8,7 @@ const Works = () => {
   const { user } = useUser();
   const { data, error } = useCollection<Work>(collection, {
     where: ["userId", "==", user?.id],
-    // orderBy: ["createdAt", "asc"]
+    orderBy: ["createdAt", "asc"],
   });
   if (error) return <p>Error: {JSON.stringify(error)}</p>;
   if (!data) return <p>Loading...</p>;
