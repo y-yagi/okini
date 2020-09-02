@@ -38,8 +38,7 @@ const useUser = () => {
         setUser(userData);
       } else {
         removeUserCookie();
-        const user = { id: "", email: "" } as UserType;
-        setUser(user);
+        setUser(undefined);
       }
     });
 
