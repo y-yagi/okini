@@ -9,6 +9,7 @@ import Link from "next/link";
 
 const Index = () => {
   const { user, logout } = useUser();
+  console.log(user)
 
   if (!user) {
     return (
