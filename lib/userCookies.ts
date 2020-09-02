@@ -8,7 +8,7 @@ export const getUserFromCookie = () => {
   return JSON.parse(cookie);
 };
 
-export const setUserCookie = (user) => {
+export const setUserCookie = (user : any) => {
   cookies.set("auth", user, {
     // firebase id tokens expire in one hour
     // set cookie expiry to match
