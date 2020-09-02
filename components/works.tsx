@@ -43,7 +43,7 @@ const Works = () => {
                   <br />
                   <p>{work.content}</p>
                 </td>
-                <td>
+                <td className="px-4 py-2">
                   <button
                     className="btn btn-red"
                     onClick={() => {
