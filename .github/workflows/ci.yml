@@ -12,7 +12,15 @@ jobs:
         run: yarn install
 
       - name: Start server
-        run: yarn dev &
+        run: yarn run dev &
 
       - name: Cypress run
         uses: cypress-io/github-action@v2
+
+      - uses: actions/upload-artifact@v2
+        if: ${{ always() }}
+        with:
+          name: artifact of cypress
+          path: |
+            cypress/videos
+            cypress/screenshots
