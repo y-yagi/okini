@@ -35,6 +35,6 @@
     "@types/react-dom": "^16.9.8",
     "cypress": "^5.1.0",
     "postcss-preset-env": "^6.7.0",
-    "prettier": "^2.0.5"
+    "prettier": "^2.1.1"
   }
 }
