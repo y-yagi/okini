@@ -2,6 +2,7 @@ import Work from "../types/work";
 import Link from "next/link";
 import { useCollection, deleteDocument } from "@nandorojo/swr-firestore";
 import { useUser } from "../lib/useUser";
+import Linkify from "react-linkify";
 
 const Works = () => {
   const collection = "okini-works";
@@ -41,7 +42,9 @@ const Works = () => {
                     {work.name}({work.artistName})
                   </span>
                   <br />
-                  <p>{work.content}</p>
+                  <p>
+                    <Linkify>{work.content}</Linkify>
+                  </p>
                 </td>
                 <td className="px-4 py-2">
                   <button
