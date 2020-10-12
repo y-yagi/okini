@@ -17,7 +17,7 @@
     "formik": "^2.2.0",
     "gray-matter": "4.0.2",
     "js-cookie": "^2.2.1",
-    "next": "^9.5.3",
+    "next": "^9.5.5",
     "react": "^16.13.0",
     "react-dom": "^16.13.0",
     "react-firebaseui": "^4.1.0",
