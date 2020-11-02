@@ -1334,10 +1334,10 @@
     "@types/yargs" "^15.0.0"
     chalk "^3.0.0"
 
-"@nandorojo/swr-firestore@^0.13.2":
-  version "0.13.2"
-  resolved "https://registry.yarnpkg.com/@nandorojo/swr-firestore/-/swr-firestore-0.13.2.tgz#8be1544144dc992e7f19a57e5bbfe145ce5f96fa"
-  integrity sha512-YTUT2F+fT6Ov7aZxcixF60bqAZ0/GM2oLVg1VjizNeyOIiA2iUKJrYErgZDFUaOVJa+6b/fk9A3m5B+P02KHSw==
+"@nandorojo/swr-firestore@^0.16.0":
+  version "0.16.0"
+  resolved "https://registry.yarnpkg.com/@nandorojo/swr-firestore/-/swr-firestore-0.16.0.tgz#e85ac4abdeb2b7f00e6b5251acb75e36fae2dd2f"
+  integrity sha512-nl5ZN9Gpkf+lQaMwrlw4H2I6vThZaV0jg5Y9Gqt6WhQjC3aaWDwAWbvZ1WkSc65lxpK+NaK3uWCN/7gHh8SbhQ==
   dependencies:
     lodash.get "^4.4.2"
     lodash.set "^4.3.2"
