@@ -32,6 +32,7 @@ const Works = () => {
             <tr>
               <th className="px-4 py-2"></th>
               <th className="px-4 py-2"></th>
+              <th className="px-4 py-2"></th>
             </tr>
           </thead>
           <tbody>
@@ -45,6 +46,11 @@ const Works = () => {
                   <p>
                     <Linkify>{work.content}</Linkify>
                   </p>
+                </td>
+                <td className="px-4 py-2">
+                  <Link href={`/works/${work.id}`}>
+                    <button className="btn btn-blue">Edit</button>
+                  </Link>
                 </td>
                 <td className="px-4 py-2">
                   <button
