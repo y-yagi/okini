@@ -1,32 +1,30 @@
+import Work from "../types/work";
 import { Formik } from "formik";
-import { useCollection, deleteDocument } from "@nandorojo/swr-firestore";
-import * as firebase from "firebase/app";
 import { useRouter } from "next/router";
+import { NextPage } from "next";
 import { useUser } from "../lib/useUser";
 
-const WorkForm = () => {
-  const collection = "okini-works";
-  const { user } = useUser();
-  const { add } = useCollection(collection);
-  const timestamp = () => firebase.firestore.FieldValue.serverTimestamp();
+interface Props {
+  work: Work;
+  action: Function;
+}
+
+const WorkForm: NextPage<Props> = ({ work, action }) => {
   const router = useRouter();
 
   return (
     <section>
       <h3 className="mb-8 text-6xl md:text-7xl font-bold tracking-tighter leading-tight">
-        Add Works
+        Works
       </h3>
       <Formik
-        initialValues={{ name: "", content: "", artistname: "" }}
+        initialValues={{
+          name: work.name,
+          content: work.content,
+          artistname: work.artistName,
+        }}
         onSubmit={(values, { setSubmitting }) => {
-          add({
-            name: values["name"],
-            content: values["content"],
-            artistName: values["artistname"],
-            userId: user?.id,
-            createdAt: timestamp(),
-            updatdAt: timestamp(),
-          });
+          action(values["name"], values["content"], values["artistname"]);
           router.push("/");
         }}
         enableReinitialize={true}
@@ -92,7 +90,7 @@ const WorkForm = () => {
                   disabled={isSubmitting}
                   className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                 >
-                  Create
+                  Submit
                 </button>
               </div>
             </div>

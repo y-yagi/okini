@@ -1,12 +1,27 @@
+import Head from "next/head";
+import Link from "next/link";
+import { useCollection } from "@nandorojo/swr-firestore";
+import * as firebase from "firebase/app";
 import { useUser } from "../../lib/useUser";
 import Container from "../../components/container";
 import Layout from "../../components/layout";
 import WorkForm from "../../components/work-form";
-import Head from "next/head";
-import Link from "next/link";
+import Work from "../../types/work";
 
 const New = () => {
-  const { user, logout } = useUser();
+  const { user } = useUser();
+  const work: Work = {
+    id: "",
+    userId: "",
+    name: "",
+    content: "",
+    artistName: "",
+    createdAt: new Date(),
+    updatedAt: new Date(),
+  };
+
+  const { add } = useCollection(`okini-works`);
+  const timestamp = () => firebase.firestore.FieldValue.serverTimestamp();
 
   if (!user) {
     return (
@@ -21,6 +36,18 @@ const New = () => {
     );
   }
 
+  function submit(name: string, content: string, artistName: string) {
+    console.error(name, content, artistName);
+    add({
+      name: name,
+      content: content,
+      artistName: artistName,
+      userId: user?.id,
+      createdAt: timestamp(),
+      updatdAt: timestamp(),
+    });
+  }
+
   return (
     <>
       <Layout>
@@ -28,7 +55,7 @@ const New = () => {
           <title>Okini</title>
         </Head>
         <Container>
-          <WorkForm />
+          <WorkForm work={work} action={submit} />
         </Container>
       </Layout>
     </>
