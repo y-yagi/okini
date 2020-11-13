@@ -1,13 +1,15 @@
-import Work from "../types/work";
+import { useState } from "react";
 import Link from "next/link";
 import { fuego, useCollection, deleteDocument } from "@nandorojo/swr-firestore";
-import { useUser } from "../lib/useUser";
 import Linkify from "react-linkify";
+import Work from "../types/work";
+import { useUser } from "../lib/useUser";
 
 const Works = () => {
   const collection = "okini-works";
   const limit = 25;
   const { user } = useUser();
+  const [hasMore, setHashMore] = useState(true);
 
   const { data, error, mutate } = useCollection<Work>(
     collection,
@@ -36,6 +38,10 @@ const Works = () => {
 
     // get the snapshot of last document we have right now in our query
     const startAfterDocument = data[data.length - 1].__snapshot;
+    if (startAfterDocument === undefined) {
+      setHashMore(false);
+      return;
+    }
 
     // get more documents, after the most recent one we have
     const moreDocs = await ref
@@ -50,13 +56,19 @@ const Works = () => {
         return docs;
       });
 
+    if (moreDocs.length === 0) {
+      setHashMore(false);
+    }
+
     // mutate our local cache, adding the docs we just added
     // set revalidate to false to prevent SWR from revalidating on its own
     mutate((state) => [...state, ...moreDocs], false);
   };
 
   const readMore = () => {
-    // TODO: Check has more data or not.
+    if (!hasMore) {
+      return "";
+    }
     return <a onClick={paginate}>More Read</a>;
   };
 
