@@ -14,7 +14,7 @@
     "classnames": "2.2.6",
     "date-fns": "2.16.1",
     "firebase": "^7.24.0",
-    "formik": "^2.2.5",
+    "formik": "^2.2.6",
     "gray-matter": "4.0.2",
     "js-cookie": "^2.2.1",
     "next": "^10.0.3",
