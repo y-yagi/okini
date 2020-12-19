@@ -62,7 +62,7 @@ const Works = () => {
 
     // mutate our local cache, adding the docs we just added
     // set revalidate to false to prevent SWR from revalidating on its own
-    mutate((state) => [...state, ...moreDocs], false);
+    mutate((state) => [...(state as any), ...moreDocs], false);
   };
 
   const readMore = () => {
