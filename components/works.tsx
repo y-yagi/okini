@@ -1,5 +1,6 @@
 import { useState } from "react";
 import Link from "next/link";
+import { useRouter } from "next/router";
 import { fuego, useCollection, deleteDocument } from "@nandorojo/swr-firestore";
 import Linkify from "react-linkify";
 import Work from "../types/work";
@@ -10,11 +11,18 @@ const Works = () => {
   const limit = 25;
   const { user } = useUser();
   const [hasMore, setHashMore] = useState(true);
+  const router = useRouter();
+  let condition = [["userId", "==", user?.id]] as any;
+  let { artist } = router.query;
+
+  if (artist?.length != 0 && typeof artist === "string") {
+    condition.push(["artistName", "==", artist]);
+  }
 
   const { data, error, mutate } = useCollection<Work>(
     collection,
     {
-      where: ["userId", "==", user?.id],
+      where: condition,
       orderBy: ["createdAt", "asc"],
       limit: limit,
       ignoreFirestoreDocumentSnapshotField: false,
@@ -98,7 +106,10 @@ const Works = () => {
               <tr key={work.id} className="border">
                 <td className="px-4 py-2">
                   <span className="text-green-900 text-sm">
-                    {work.name}({work.artistName})
+                    {work.name}
+                    <Link href={`?artist=${work.artistName}`}>
+                      <a>({work.artistName}) </a>
+                    </Link>
                   </span>
                   <br />
                   <p>
