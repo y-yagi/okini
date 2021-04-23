@@ -36,12 +36,17 @@ const New = () => {
     );
   }
 
-  function submit(name: string, content: string, artistName: string) {
-    console.error(name, content, artistName);
+  function submit(
+    name: string,
+    content: string,
+    artistName: string,
+    collection: string
+  ) {
     add({
       name: name,
       content: content,
       artistName: artistName,
+      collection: collection,
       userId: user?.id,
       createdAt: timestamp(),
       updatdAt: timestamp(),

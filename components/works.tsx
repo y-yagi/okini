@@ -115,6 +115,9 @@ const Works = () => {
                   <p>
                     <Linkify>{work.content}</Linkify>
                   </p>
+                  <span className="text-blue-900 text-sm">
+                    {work.collection}
+                  </span>
                 </td>
                 <td className="px-4 py-2">
                   <Link href={`/works/${work.id}`}>

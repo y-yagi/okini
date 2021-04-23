@@ -15,11 +15,17 @@ const Edit = () => {
   const { id } = router.query;
   const { data, update, error } = useDocument<Work>(`okini-works/${id}`);
 
-  function submit(name: string, content: string, artistName: string) {
+  function submit(
+    name: string,
+    content: string,
+    artistName: string,
+    collection: string
+  ) {
     update({
       name: name,
       content: content,
       artistName: artistName,
+      collection: collection,
     });
   }
 

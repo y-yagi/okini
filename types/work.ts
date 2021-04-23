@@ -4,6 +4,7 @@ type WorkType = {
   artistName: string;
   name: string;
   content: string;
+  collection: string;
   createdAt: Date;
   updatedAt: Date;
 };
