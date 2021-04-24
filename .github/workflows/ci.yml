@@ -11,6 +11,9 @@ jobs:
       - name: Run yarn install
         run: yarn install
 
+      - name: Run test
+        run: yarn test
+
       - name: Start server
         run: yarn run dev &
         env:
