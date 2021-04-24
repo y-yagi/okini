@@ -16,6 +16,7 @@ const New = () => {
     name: "",
     content: "",
     artistName: "",
+    collection: "",
     createdAt: new Date(),
     updatedAt: new Date(),
   };
