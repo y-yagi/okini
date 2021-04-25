@@ -79,8 +79,8 @@ const WorkForm: NextPage<Props> = ({ work, action }) => {
               <div className="md:w-2/3">
                 <input
                   placeholder="artist name"
-                  required
                   name="artistname"
+                  required
                   onChange={handleChange}
                   value={values.artistname}
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
