@@ -1,34 +1,33 @@
-name: End-to-end tests
+name: CI
+
 on: [push]
+
 jobs:
-  cypress-run:
+  build:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout
-        uses: actions/checkout@v2
+    - uses: actions/checkout@v1
+    - name: Use Node.js
+      uses: actions/setup-node@v1
+      with:
+        node-version: '12.x'
+    - name: Show node version
+      run: node -v
+    - name: Get yarn cache directory path
+      id: yarn-cache-dir-path
+      run: echo "::set-output name=dir::$(yarn cache dir)"
+    - uses: actions/cache@v1
+      id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
+      with:
+        path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+        key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+        restore-keys: |
+          ${{ runner.os }}-yarn-
+    - name: Run yarn install
+      run: yarn install
+    - name: Run prettier
+      run: yarn pretty-check
+    - name: Run test
+      run: yarn test
 
-      - name: Run yarn install
-        run: yarn install
-
-      - name: Run test
-        run: yarn test
-
-      - name: Start server
-        run: yarn run dev &
-        env:
-          NEXT_PUBLIC_FIREBASE_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_PUBLIC_API_KEY }}
-          NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ secrets.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN }}
-          NEXT_PUBLIC_FIREBASE_DATABASE_URL: ${{ secrets.NEXT_PUBLIC_FIREBASE_DATABASE_URL }}
-          NEXT_PUBLIC_FIREBASE_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_PROJECT_ID }}
-
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
-
-      - uses: actions/upload-artifact@v2
-        if: ${{ always() }}
-        with:
-          name: artifact of cypress
-          path: |
-            cypress/videos
-            cypress/screenshots
