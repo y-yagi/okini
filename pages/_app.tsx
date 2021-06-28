@@ -3,7 +3,8 @@ import "../styles/index.css";
 import React from "react";
 import "firebase/firestore";
 import "firebase/auth";
-import { Fuego, FuegoProvider } from "@nandorojo/swr-firestore";
+import { Fuego } from "../lib/fuego";
+import { FuegoProvider } from "@nandorojo/swr-firestore";
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_PUBLIC_API_KEY,
