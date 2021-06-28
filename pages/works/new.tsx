@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Link from "next/link";
 import { useCollection } from "@nandorojo/swr-firestore";
-import * as firebase from "firebase/app";
+import firebase from "firebase/app";
 import { useUser } from "../../lib/useUser";
 import Container from "../../components/container";
 import Layout from "../../components/layout";

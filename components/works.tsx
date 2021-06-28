@@ -58,9 +58,9 @@ const Works = () => {
       .limit(limit)
       .startAfter(startAfterDocument)
       .get()
-      .then((d) => {
+      .then((d: any) => {
         const docs: any = [];
-        d.docs.forEach((doc) => docs.push({ ...doc.data(), id: doc.id }));
+        d.docs.forEach((doc: any) => docs.push({ ...doc.data(), id: doc.id }));
         return docs;
       });
 

@@ -3,7 +3,7 @@ import "../styles/index.css";
 import React from "react";
 import "firebase/firestore";
 import "firebase/auth";
-import { Fuego } from '../lib/fuego'
+import { Fuego } from "../lib/fuego";
 import { FuegoProvider } from "@nandorojo/swr-firestore";
 
 const firebaseConfig = {
