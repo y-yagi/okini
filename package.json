@@ -40,7 +40,7 @@
     "@types/react-linkify": "^1.0.1",
     "cypress": "^7.7.0",
     "eslint-plugin-react": "^7.24.0",
-    "jest": "^27.0.6",
+    "jest": "^27.1.0",
     "postcss-preset-env": "^6.7.0",
     "prettier": "^2.3.2"
   },
