@@ -106,9 +106,9 @@ const Works = () => {
               <tr key={work.id} className="border">
                 <td className="px-4 py-2">
                   <span className="text-green-900">
-                    {work.name}
+                    {work.name} -
                     <Link href={`?artist=${work.artistName}`}>
-                      <a>({work.artistName}) </a>
+                      <a> {work.artistName}</a>
                     </Link>
                   </span>
                   <br />
