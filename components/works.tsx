@@ -105,7 +105,7 @@ const Works = () => {
             {data.map((work) => (
               <tr key={work.id} className="border">
                 <td className="px-4 py-2">
-                  <span className="text-green-900 text-sm">
+                  <span className="text-green-900">
                     {work.name}
                     <Link href={`?artist=${work.artistName}`}>
                       <a>({work.artistName}) </a>
@@ -113,7 +113,9 @@ const Works = () => {
                   </span>
                   <br />
                   <p>
-                    <Linkify>{work.content}</Linkify>
+                    <Linkify>
+                      <span className="text-sm">{work.content}</span>
+                    </Linkify>
                   </p>
                   <span className="text-blue-900 text-sm">
                     {work.collection}
