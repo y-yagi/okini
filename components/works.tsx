@@ -99,6 +99,7 @@ const Works = () => {
               <th className="px-4 py-2"></th>
               <th className="px-4 py-2"></th>
               <th className="px-4 py-2"></th>
+              <th className="px-4 py-2"></th>
             </tr>
           </thead>
           <tbody>
@@ -140,6 +141,27 @@ const Works = () => {
                   >
                     Destroy
                   </button>
+                </td>
+                <td>
+                  <div className="dropdown">
+                    <div tabindex="0" className="m-1 btn">
+                      Dropdown
+                    </div>
+                    <ul
+                      tabindex="0"
+                      className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
+                    >
+                      <li>
+                        <a>Item 1</a>
+                      </li>
+                      <li>
+                        <a>Item 2</a>
+                      </li>
+                      <li>
+                        <a>Item 3</a>
+                      </li>
+                    </ul>
+                  </div>
                 </td>
               </tr>
             ))}
