@@ -154,11 +154,11 @@ const Works = () => {
                 </td>
                 <td>
                   <div className="dropdown">
-                    <div tabindex="0" className="m-1 btn">
+                    <div tabIndex={0} className="m-1 btn">
                       Search Google Arts
                     </div>
                     <ul
-                      tabindex="0"
+                      tabIndex={0}
                       className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
                     >
                       <li>
