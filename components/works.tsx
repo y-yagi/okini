@@ -12,6 +12,10 @@ const Works = () => {
   const { user } = useUser();
   const [hasMore, setHashMore] = useState(true);
   const router = useRouter();
+  const googleArtAndCultureURL = new URL(
+    "search",
+    "https://artsandculture.google.com/"
+  );
   let condition = [["userId", "==", user?.id]] as any;
   let { artist } = router.query;
 
@@ -80,6 +84,12 @@ const Works = () => {
     return <a onClick={paginate}>More Read</a>;
   };
 
+  const buildSearchURL = (value: string): string => {
+    const URL = googleArtAndCultureURL;
+    URL.searchParams.set("q", value);
+    return URL.toString();
+  };
+
   return (
     <section>
       <div className="md:flex md:items-center mb-6">
@@ -96,6 +106,7 @@ const Works = () => {
         <table className="table-auto">
           <thead>
             <tr>
+              <th className="px-4 py-2"></th>
               <th className="px-4 py-2"></th>
               <th className="px-4 py-2"></th>
               <th className="px-4 py-2"></th>
@@ -140,6 +151,41 @@ const Works = () => {
                   >
                     Destroy
                   </button>
+                </td>
+                <td>
+                  <div className="dropdown">
+                    <div tabIndex={0} className="m-1 btn">
+                      Search Google Arts
+                    </div>
+                    <ul
+                      tabIndex={0}
+                      className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
+                    >
+                      <li>
+                        <a href={buildSearchURL(work.name)} target="blank">
+                          Art Name
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href={buildSearchURL(work.artistName)}
+                          target="blank"
+                        >
+                          Artist Name
+                        </a>
+                      </li>
+                      <li>
+                        <a
+                          href={buildSearchURL(
+                            `${work.name} ${work.artistName}`
+                          )}
+                          target="blank"
+                        >
+                          Combine Names
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </td>
               </tr>
             ))}
