@@ -12,6 +12,10 @@ const Works = () => {
   const { user } = useUser();
   const [hasMore, setHashMore] = useState(true);
   const router = useRouter();
+  const googleArtAndCultureURL = new URL(
+    "search",
+    "https://artsandculture.google.com/"
+  );
   let condition = [["userId", "==", user?.id]] as any;
   let { artist } = router.query;
 
@@ -80,6 +84,12 @@ const Works = () => {
     return <a onClick={paginate}>More Read</a>;
   };
 
+  const buildSearchURL = (value: string): string => {
+    const URL = googleArtAndCultureURL;
+    URL.searchParams.set("q", value);
+    return URL.toString();
+  };
+
   return (
     <section>
       <div className="md:flex md:items-center mb-6">
@@ -145,20 +155,34 @@ const Works = () => {
                 <td>
                   <div className="dropdown">
                     <div tabindex="0" className="m-1 btn">
-                      Dropdown
+                      Search Google Arts
                     </div>
                     <ul
                       tabindex="0"
                       className="p-2 shadow menu dropdown-content bg-base-100 rounded-box w-52"
                     >
                       <li>
-                        <a>Item 1</a>
+                        <a href={buildSearchURL(work.name)} target="blank">
+                          Art Name
+                        </a>
                       </li>
                       <li>
-                        <a>Item 2</a>
+                        <a
+                          href={buildSearchURL(work.artistName)}
+                          target="blank"
+                        >
+                          Artist Name
+                        </a>
                       </li>
                       <li>
-                        <a>Item 3</a>
+                        <a
+                          href={buildSearchURL(
+                            `${work.name} ${work.artistName}`
+                          )}
+                          target="blank"
+                        >
+                          Combine Names
+                        </a>
                       </li>
                     </ul>
                   </div>
