@@ -13,7 +13,7 @@
   "dependencies": {
     "@nandorojo/swr-firestore": "^0.16.0",
     "classnames": "2.3.1",
-    "daisyui": "^1.14.7",
+    "daisyui": "^1.16.0",
     "date-fns": "2.25.0",
     "firebase": "^8.10.0",
     "formik": "^2.2.9",
