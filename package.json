@@ -14,7 +14,7 @@
     "@nandorojo/swr-firestore": "^0.16.0",
     "classnames": "2.3.1",
     "daisyui": "^1.16.2",
-    "date-fns": "2.25.0",
+    "date-fns": "2.26.0",
     "firebase": "^8.10.0",
     "formik": "^2.2.9",
     "gray-matter": "4.0.3",
@@ -24,10 +24,10 @@
     "react-dom": "^17.0.2",
     "react-firebaseui": "^5.0.2",
     "react-linkify": "^1.0.0-alpha",
-    "remark": "14.0.1",
+    "remark": "14.0.2",
     "remark-html": "15.0.0",
     "tailwindcss": "^1.9.6",
-    "typescript": "^4.4.4"
+    "typescript": "^4.5.2"
   },
   "devDependencies": {
     "@babel/preset-react": "^7.16.0",
@@ -40,8 +40,8 @@
     "@types/react-dom": "^17.0.11",
     "@types/react-linkify": "^1.0.1",
     "cypress": "^8.7.0",
-    "eslint-plugin-react": "^7.27.0",
-    "jest": "^27.3.1",
+    "eslint-plugin-react": "^7.27.1",
+    "jest": "^27.4.0",
     "prettier": "^2.4.1"
   },
   "jest": {
