@@ -27,7 +27,7 @@ const Works = () => {
     collection,
     {
       where: condition,
-      orderBy: ["createdAt", "asc"],
+      orderBy: ["createdAt", "desc"],
       limit: limit,
       ignoreFirestoreDocumentSnapshotField: false,
     },
