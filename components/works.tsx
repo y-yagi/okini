@@ -8,7 +8,7 @@ import { useUser } from "../lib/useUser";
 
 const Works = () => {
   const collection = "okini-works";
-  const limit = 25;
+  const limit = 50;
   const { user } = useUser();
   const [hasMore, setHashMore] = useState(true);
   const router = useRouter();
