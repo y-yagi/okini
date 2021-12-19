@@ -26,10 +26,10 @@ const WorkForm: NextPage<Props> = ({ work, action }) => {
         }}
         onSubmit={(values, { setSubmitting }) => {
           action(
-            values["name"],
-            values["content"],
-            values["artistname"],
-            values["collection"]
+            values["name"].trim(),
+            values["content"].trim(),
+            values["artistname"].trim(),
+            values["collection"].trim()
           );
           router.push("/");
         }}
