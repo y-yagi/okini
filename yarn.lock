@@ -2281,10 +2281,10 @@ cypress@^9.1.1:
     url "^0.11.0"
     yauzl "^2.10.0"
 
-daisyui@^1.16.4:
-  version "1.16.4"
-  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-1.16.4.tgz#52773401c0962e37ef40507d29f0e513c7f2856f"
-  integrity sha512-bpPUlIR6PJdnaM+Vj+Rd0ljMwbdwjvFAW9E/bhxCRDEU48OnmpKQxnkwNGAtXbwWWATS6I1dEIlLdM8zCbV3uQ==
+daisyui@^1.22.0:
+  version "1.22.0"
+  resolved "https://registry.yarnpkg.com/daisyui/-/daisyui-1.22.0.tgz#1762047fc072941c3e0f2662a3f5719292f5d0d7"
+  integrity sha512-Gu5u+uGvEVJncgbf9lYVT4NbnYkPSxm2IRe7XcHYj8qBhOvXOVZpM+ifp4zj1/YvJhcViP+hjSYXlQCLd3ItfQ==
 
 dashdash@^1.12.0:
   version "1.14.1"
