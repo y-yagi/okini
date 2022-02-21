@@ -41,7 +41,7 @@
     "@types/react-linkify": "^1.0.1",
     "cypress": "^9.1.1",
     "eslint-plugin-react": "^7.28.0",
-    "jest": "^27.4.4",
+    "jest": "^27.5.1",
     "prettier": "^2.5.1"
   },
   "jest": {
