@@ -58,7 +58,7 @@ const Works = () => {
     // get more documents, after the most recent one we have
     const moreDocs = await ref
       .where("userId", "==", user?.id)
-      .orderBy("createdAt", "asc")
+      .orderBy("createdAt", "desc")
       .limit(limit)
       .startAfter(startAfterDocument)
       .get()
