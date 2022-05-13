@@ -16,7 +16,7 @@ const Index = () => {
         <p>
           Please signed in.{" "}
           <Link href={"/auth"}>
-            <a>Sign in</a>
+            <a id="signin">Sign in</a>
           </Link>
         </p>
       </>

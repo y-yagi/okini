@@ -1,15 +1,24 @@
 name: End-to-end tests
 on: [push]
 jobs:
-  cypress-run:
+  build:
     runs-on: ubuntu-latest
 
     steps:
+      - uses: actions/checkout@v1
+      - name: Use Node.js
+        uses: actions/setup-node@v1
+        with:
+          node-version: '14.x'
+
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v1
 
       - name: Run yarn install
         run: yarn install
+
+      - name: Build assets before stars a server
+        run: yarn run build
 
       - name: Start server
         run: yarn run dev &
@@ -19,13 +28,19 @@ jobs:
           NEXT_PUBLIC_FIREBASE_DATABASE_URL: ${{ secrets.NEXT_PUBLIC_FIREBASE_DATABASE_URL }}
           NEXT_PUBLIC_FIREBASE_PROJECT_ID: ${{ secrets.NEXT_PUBLIC_FIREBASE_PROJECT_ID }}
 
-      - name: Cypress run
-        uses: cypress-io/github-action@v2
+      - name: Sleep for 10 seconds
+        run: sleep 10s
+        shell: bash
+
+      - name: Install browsers
+        run: yarn playwright install
+
+      - name: Run tests
+        run: yarn playwright test
 
       - uses: actions/upload-artifact@v2
         if: ${{ always() }}
         with:
-          name: artifact of cypress
+          name: artifact of playwright
           path: |
-            cypress/videos
-            cypress/screenshots
+            test-results
