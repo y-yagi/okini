@@ -13,7 +13,7 @@
   "dependencies": {
     "@nandorojo/swr-firestore": "^0.16.0",
     "autoprefixer": "^10.4.8",
-    "classnames": "2.3.1",
+    "classnames": "2.3.2",
     "daisyui": "^2.0.6",
     "date-fns": "2.29.2",
     "firebase": "^8.10.1",
