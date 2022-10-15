@@ -52,5 +52,8 @@
     "testPathIgnorePatterns": [
       "/tests"
     ]
+  },
+  "engines": {
+    "node": "16"
   }
 }
