@@ -14,7 +14,7 @@
     "@nandorojo/swr-firestore": "^0.16.0",
     "autoprefixer": "^10.4.14",
     "classnames": "2.3.2",
-    "daisyui": "^2.51.3",
+    "daisyui": "^2.51.4",
     "date-fns": "2.29.3",
     "firebase": "^8.10.1",
     "formik": "^2.2.9",
