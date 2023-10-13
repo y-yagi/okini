@@ -28,7 +28,7 @@ test("onSubmit", () => {
   } as Work;
   const mockFn = jest.fn();
   const { getByPlaceholderText, getByText } = render(
-    <WorkForm work={work} action={mockFn} />
+    <WorkForm work={work} action={mockFn} />,
   );
   fireEvent.change(getByPlaceholderText("name"), { target: { value: "name" } });
   fireEvent.change(getByPlaceholderText("artist name"), {

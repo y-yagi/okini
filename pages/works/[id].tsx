@@ -19,7 +19,7 @@ const Edit = () => {
     name: string,
     content: string,
     artistName: string,
-    collection: string
+    collection: string,
   ) {
     update({
       name: name,
