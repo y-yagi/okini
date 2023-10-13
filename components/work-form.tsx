@@ -29,7 +29,7 @@ const WorkForm: NextPage<Props> = ({ work, action }) => {
             values["name"].trim(),
             values["content"].trim(),
             values["artistname"].trim(),
-            values["collection"].trim()
+            values["collection"].trim(),
           );
           router.push("/");
         }}

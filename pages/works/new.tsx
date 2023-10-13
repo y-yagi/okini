@@ -41,7 +41,7 @@ const New = () => {
     name: string,
     content: string,
     artistName: string,
-    collection: string
+    collection: string,
   ) {
     add({
       name: name,

@@ -14,7 +14,7 @@ const Works = () => {
   const router = useRouter();
   const googleArtAndCultureURL = new URL(
     "search",
-    "https://artsandculture.google.com/"
+    "https://artsandculture.google.com/",
   );
   let condition = [["userId", "==", user?.id]] as any;
   let { artist } = router.query;
@@ -37,7 +37,7 @@ const Works = () => {
       refreshWhenHidden: false,
       refreshWhenOffline: false,
       refreshInterval: 0,
-    }
+    },
   );
 
   if (error) return <p>Error: {JSON.stringify(error)}</p>;
@@ -143,7 +143,7 @@ const Works = () => {
                     onClick={() => {
                       if (
                         window.confirm(
-                          "Are you sure you wish to delete this item?"
+                          "Are you sure you wish to delete this item?",
                         )
                       )
                         deleteDocument(`${collection}/${work.id}`);
@@ -177,7 +177,7 @@ const Works = () => {
                       <li>
                         <a
                           href={buildSearchURL(
-                            `${work.name} ${work.artistName}`
+                            `${work.name} ${work.artistName}`,
                           )}
                           target="blank"
                         >
