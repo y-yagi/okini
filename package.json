@@ -17,7 +17,7 @@
     "daisyui": "^3.9.2",
     "date-fns": "2.30.0",
     "firebase": "^8.10.1",
-    "formik": "^2.4.2",
+    "formik": "^2.4.5",
     "gray-matter": "4.0.3",
     "js-cookie": "^3.0.5",
     "next": "^12.3.1",
