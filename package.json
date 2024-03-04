@@ -15,7 +15,7 @@
     "autoprefixer": "^10.4.16",
     "classnames": "2.5.1",
     "daisyui": "^3.9.2",
-    "date-fns": "2.30.0",
+    "date-fns": "3.3.1",
     "firebase": "^8.10.1",
     "formik": "^2.4.5",
     "gray-matter": "4.0.3",
