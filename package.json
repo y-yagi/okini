@@ -33,7 +33,7 @@
   },
   "devDependencies": {
     "@babel/preset-react": "^7.24.7",
-    "@playwright/test": "^1.42.1",
+    "@playwright/test": "^1.48.0",
     "@testing-library/react": "^12.1.5",
     "@types/classnames": "^2.3.1",
     "@types/jest": "^29.5.12",
