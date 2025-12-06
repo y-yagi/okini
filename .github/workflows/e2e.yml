@@ -6,23 +6,27 @@ jobs:
 
     steps:
       - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 9
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '24.x'
-          cache: 'yarn'
+          cache: 'pnpm'
 
-      - name: Run yarn install
-        run: yarn install
+      - name: Run pnpm install
+        run: pnpm install
 
       - name: Build assets before stars a server
-        run: yarn run build
+        run: pnpm run build
 
       - name: Install browsers
-        run: yarn playwright install
+        run: pnpm playwright install
 
       - name: Run tests
-        run: yarn playwright test
+        run: pnpm playwright test
         env:
           NEXT_PUBLIC_FIREBASE_PUBLIC_API_KEY: ${{ secrets.NEXT_PUBLIC_FIREBASE_PUBLIC_API_KEY }}
           NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN: ${{ secrets.NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN }}

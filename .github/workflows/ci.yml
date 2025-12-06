@@ -8,17 +8,21 @@ jobs:
 
     steps:
     - uses: actions/checkout@v4
+    - name: Install pnpm
+      uses: pnpm/action-setup@v4
+      with:
+        version: 9
     - name: Use Node.js
       uses: actions/setup-node@v4
       with:
         node-version: '24.x'
-        cache: 'yarn'
+        cache: 'pnpm'
     - name: Show node version
       run: node -v
-    - name: Run yarn install
-      run: yarn install
+    - name: Run pnpm install
+      run: pnpm install
     - name: Run prettier
-      run: yarn pretty-check
+      run: pnpm pretty-check
     - name: Run test
-      run: yarn test
+      run: pnpm test
 
